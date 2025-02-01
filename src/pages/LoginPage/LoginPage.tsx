@@ -63,7 +63,7 @@ export const LoginPage = () => {
     } else {
       console.log("Пользователь не найден"); // Если пользователя нет в localStorage
     }
-    useNavigate("/");
+    navigate("/");
   };
 
   return (

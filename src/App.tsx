@@ -23,7 +23,7 @@ export const App = () => {
 
   useEffect(() => {
     if (data) {
-      console.log(data); // Проверим, что данные приходят
+      console.log(data); // Verify incoming data
     }
   }, [data]);
 
@@ -38,19 +38,22 @@ export const App = () => {
           <Link to={`/house/${house.id}`} key={house.id} className="card">
             <img
               className="card-image"
-              src={house.coverPhoto?.url || "https://via.placeholder.com/300"}
-              alt={house.title || "House"}
+              src={house?.coverPhoto?.url || "https://via.placeholder.com/300"}
+              alt={house?.title || "House"}
             />
             <div className="card-content">
               <h2 className="card-title">
-                {house.title || "No title available"}
+                {house?.title || "No title available"}
               </h2>
               <p className="card-price">
-                {house.price ? `$${house.price}` : "Price not available"}
+                {house?.price ? `$${house.price}` : "Price not available"}
               </p>
               <p className="card-location">
-                {house.location[1].name || "Location not available"}
+                {house?.location?.[1]?.name || "Location not available"}
               </p>
+              <button onClick={() => toggleFavorite(house.id)}>
+                Toggle Favorite
+              </button>
             </div>
           </Link>
         ))}
