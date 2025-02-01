@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import Header from "../../components/Header/Header";
 import { Heading } from "../../components/typography/Heading";
 import styles from "./ProfilePage.module.css"; // Импортируем CSS
 
@@ -51,6 +52,60 @@ export const ProfilePage: React.FC = () => {
   }
 
   return (
+    <>    
+    <Header/>
+    <div className={styles["profile-container"]}>
+      <img
+        src={imageSrc}
+        alt="Нажмите, чтобы выбрать изображение"
+        className={styles["profile-image"]}
+        onClick={handleImageClick}
+      />
+      <input
+        type="file"
+        accept="image/*"
+        ref={fileInputRef}
+        className={styles["file-input"]}
+        onChange={handleFileChange}
+      />
+      <div className={styles["profile-info"]}>
+        <Heading
+          text={`Имя: ${user.username}`}
+          level={2}
+          className={styles["profile-heading"]}
+        />
+        <Heading
+          text={`Фамилия: ${user.userlastname}`}
+          level={2}
+          className={styles["profile-heading"]}
+        />
+        <Heading
+          text={`Город проживания: ${user.usercity}`}
+          level={2}
+          className={styles["profile-heading"]}
+        />
+        <Heading
+          text={`Эл. почта: ${user.useremail}`}
+          level={2}
+          className={styles["profile-heading"]}
+        />
+        <Heading
+          text={`Номер телефона: ${user.userphone}`}
+          level={2}
+          className={styles["profile-heading"]}
+        />
+        <div className={styles["password-container"]}>
+          <Heading text="Пароль: " level={2} />
+          <input
+            type="password"
+            value={user.userpassword}
+            disabled
+            className={styles["password-input"]}
+          />
+        </div>
+      </div>
+    </div>
+    </>
     <div className={styles["profile-container"]}>
       <img
         src={imageSrc}

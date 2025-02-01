@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Header from "../../components/Header/Header";
 import { useGetAllHouseQuery } from "../../store/api/Houses.api";
 import "./HouseDetailsPage.css";
 
@@ -31,18 +32,21 @@ export const HouseDetailsPage = () => {
   if (!house) return <div>House not found</div>;
 
   return (
-    <div className="house-details">
-      <h1>{house.title}</h1>
-      <img
-        src={house.coverPhoto?.url || "https://via.placeholder.com/300"}
-        alt={house.title}
-      />
-      <p>Price: ${house.price}</p>
-      <p>Location: {house.location?.[1]?.name || "Location not available"}</p>
-      <p>Area: {house.area ? `${house.area} m²` : "Area not available"}</p>
-      <p>Rooms: {house.rooms || "No information about rooms"}</p>
-      <p>Phone Number: {house.phoneNumber?.mobile || "No phone number"}</p>
-      <p>Baths: {house.baths || "No baths information"}</p>
-    </div>
+    <>
+      <Header />
+      <div className="house-details">
+        <h1>{house.title}</h1>
+        <img
+          src={house.coverPhoto?.url || "https://via.placeholder.com/300"}
+          alt={house.title}
+        />
+        <p>Price: ${house.price}</p>
+        <p>Location: {house.location?.[1]?.name || "Location not available"}</p>
+        <p>Area: {house.area ? `${house.area} m²` : "Area not available"}</p>
+        <p>Rooms: {house.rooms || "No information about rooms"}</p>
+        <p>Phone Number: {house.phoneNumber?.mobile || "No phone number"}</p>
+        <p>Baths: {house.baths || "No baths information"}</p>
+      </div>
+    </>
   );
 };
