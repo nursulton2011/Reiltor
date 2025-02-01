@@ -1,0 +1,1 @@
+export const baseURL = "https://bayut.p.rapidapi.com"
