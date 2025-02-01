@@ -1,21 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
 import { Heading } from "../../components/typography/Heading";
 import { useGetAllHouseQuery } from "../../store/api/Houses.api";
 import "./FvoritePages.style.scss";
 
+// Тип для дома
+interface House {
+  id: string;
+  coverPhoto: { url: string };
+  title: string;
+  price: number;
+  location: { region: string };
+}
+
 export const FavoritesPage = () => {
-  const { data, isLoading, error } = useGetAllHouseQuery(null);
-  const [favorites] = useState<number[]>(
+  const { data, isLoading, error } = useGetAllHouseQuery();
+  const [favorites, setFavorites] = useState<string[]>(
     JSON.parse(localStorage.getItem("favorites") || "[]")
   ); // Извлекаем избранные из localStorage
+
+  // Сохраняем избранные дома в localStorage
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error occurred: {JSON.stringify(error)}</div>;
 
-  // Фильтруем избранные карточки
-  const favoriteHouses = data.hits.filter((_, index: number) =>
-    favorites.includes(index)
+  // Фильтруем избранные карточки по id
+  const favoriteHouses = data?.hits.filter((house: House) =>
+    favorites.includes(house.id)
   );
 
   return (
@@ -23,9 +37,9 @@ export const FavoritesPage = () => {
       <Header />
       <Heading text="Избранные" />
       <div className="card-container">
-        {favoriteHouses.length > 0 ? (
-          favoriteHouses.map((house: any, index: number) => (
-            <div className="card" key={index}>
+        {favoriteHouses?.length > 0 ? (
+          favoriteHouses.map((house: House) => (
+            <div className="card" key={house.id}>
               <img
                 className="card-image"
                 src={house.coverPhoto?.url || "https://via.placeholder.com/300"}

@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Heading } from "../../components/typography/Heading";
-import { Input } from "../../components/UI/index";
 import styles from "./ProfilePage.module.css"; // Импортируем CSS
 
 interface IUser {
@@ -44,9 +43,10 @@ export const ProfilePage: React.FC = () => {
 
   if (!user) {
     return (
-      <Heading level="6">
-        Нет данных o пользователе. Пожалуйста, зарегистрируйтесь.
-      </Heading>
+      <Heading
+        level={6}
+        text="Нет данных о пользователе. Пожалуйста, зарегистрируйтесь."
+      />
     );
   }
 
@@ -58,7 +58,7 @@ export const ProfilePage: React.FC = () => {
         className={styles["profile-image"]}
         onClick={handleImageClick}
       />
-      <Input
+      <input
         type="file"
         accept="image/*"
         ref={fileInputRef}
@@ -68,32 +68,32 @@ export const ProfilePage: React.FC = () => {
       <div className={styles["profile-info"]}>
         <Heading
           text={`Имя: ${user.username}`}
-          level="2"
+          level={2}
           className={styles["profile-heading"]}
         />
         <Heading
           text={`Фамилия: ${user.userlastname}`}
-          level="2"
+          level={2}
           className={styles["profile-heading"]}
         />
         <Heading
           text={`Город проживания: ${user.usercity}`}
-          level="2"
+          level={2}
           className={styles["profile-heading"]}
         />
         <Heading
           text={`Эл. почта: ${user.useremail}`}
-          level="2"
+          level={2}
           className={styles["profile-heading"]}
         />
         <Heading
           text={`Номер телефона: ${user.userphone}`}
-          level="2"
+          level={2}
           className={styles["profile-heading"]}
         />
         <div className={styles["password-container"]}>
-          <Heading text="Пароль: " level="2" />
-          <Input
+          <Heading text="Пароль: " level={2} />
+          <input
             type="password"
             value={user.userpassword}
             disabled
