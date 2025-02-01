@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import { useGetAllHouseQuery } from "./store/api/Houses.api";
 import "./App.scss";
 import { Link } from "react-router-dom";
+import { FaHeart, FaRegHeart } from "react-icons/fa"; // Импорт иконок
 
 export interface House {
   coverPhoto?: {
@@ -22,7 +23,8 @@ export const App = () => {
     JSON.parse(localStorage.getItem("favorites") || "[]")
   );
 
-  const toggleFavorite = (id: string) => {
+  const toggleFavorite = (id: string, event: React.MouseEvent) => {
+    event.preventDefault(); // Отменяем переход по ссылке
     const updatedFavorites = favorites.includes(id)
       ? favorites.filter((favId) => favId !== id)
       : [...favorites, id];
@@ -64,8 +66,15 @@ export const App = () => {
                 <p className="card-location">
                   {house.location?.[1]?.name || "Location not available"}
                 </p>
-                <button onClick={() => toggleFavorite(house.id)}>
-                  Toggle Favorite
+                <button
+                  onClick={(event) => toggleFavorite(house.id, event)}
+                  className="favorite-button"
+                >
+                  {favorites.includes(house.id) ? (
+                    <FaHeart color="red" />
+                  ) : (
+                    <FaRegHeart color="gray" />
+                  )}
                 </button>
               </div>
             </Link>
