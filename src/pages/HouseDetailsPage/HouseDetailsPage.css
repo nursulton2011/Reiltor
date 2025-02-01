@@ -1,78 +1,62 @@
 /* HouseDetailsPage.css */
-
-/* General styles for the house details container */
-.house-details {
-  padding: 20px;
+.house-details-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-.house-details h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.house-details {
+  flex: 0 0 65%;
+  /* Левая колонка занимает 65% ширины */
 }
 
 .house-details img {
   width: 100%;
-  max-width: 600px;
   height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
 }
 
 .house-details p {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
-/* For screens larger than 768px */
-@media (min-width: 768px) {
+.recommendations {
+  flex: 0 0 30%;
+  /* Правая колонка занимает 30% ширины */
+  padding: 20px;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations iframe {
+  width: 100%;
+  height: 400px;
+  border-radius: 8px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .house-details-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .house-details {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex: 0 0 100%;
+    /* На мобильных устройствах левая колонка занимает всю ширину */
   }
 
-  .house-details h1 {
-    font-size: 3rem;
+  .recommendations {
+    flex: 0 0 100%;
+    /* На мобильных устройствах правая колонка также будет занимать всю ширину */
+    margin-top: 20px;
   }
 
-  .house-details img {
-    max-width: 45%;
-    margin-right: 20px;
-  }
-
-  .house-details p {
-    width: 45%;
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-  }
-}
-
-/* For screens larger than 1024px */
-@media (min-width: 1024px) {
-  .house-details h1 {
-    font-size: 3.5rem;
-  }
-
-  .house-details p {
-    font-size: 1.4rem;
-  }
-}
-
-/* For very small screens (mobile portrait) */
-@media (max-width: 480px) {
-  .house-details h1 {
-    font-size: 2rem;
-  }
-
-  .house-details p {
-    font-size: 1rem;
-  }
-
-  .house-details img {
-    max-width: 100%;
+  .recommendations iframe {
+    height: 250px;
+    /* Высота рекламы на мобильных устройствах */
   }
 }
