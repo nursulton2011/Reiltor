@@ -26,14 +26,14 @@
 .recommendations {
   flex: 0 0 30%;
   /* Правая колонка занимает 30% ширины */
-  padding: 20px;
   background-color: #f0f0f0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recommendations iframe {
   width: 100%;
-  height: 400px;
+  height: 50%;
+  margin-top: 30px;
   border-radius: 8px;
   border: none;
 }

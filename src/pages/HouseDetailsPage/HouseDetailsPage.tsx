@@ -56,23 +56,20 @@ export const HouseDetailsPage = () => {
           <iframe
             src="https://smartremont.uz/" // Замени на URL рекламного контента
             width="100%"
-            height="400px"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />{" "}
           <iframe
-            src="https://dafna.uz/" // Замени на URL рекламного контента
+            src="https://fullhouse.uz/" // Замени на URL рекламного контента
             width="100%"
-            height="400px"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />{" "}
           <iframe
-            src="https://scandihome.uz/carpet" // Замени на URL рекламного контента
+            src="https://kover.ru/" // Замени на URL рекламного контента
             width="100%"
-            height="400px"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
