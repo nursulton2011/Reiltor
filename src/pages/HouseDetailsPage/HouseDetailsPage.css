@@ -1,49 +1,78 @@
-.house-details {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
+/* HouseDetailsPage.css */
 
-.house-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    object-fit: cover;
+/* General styles for the house details container */
+.house-details {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
 .house-details h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.house-details img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .house-details p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.5;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
 }
 
-.price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2a9d8f;
-    margin-bottom: 15px;
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+  .house-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .house-details h1 {
+    font-size: 3rem;
+  }
+
+  .house-details img {
+    max-width: 45%;
+    margin-right: 20px;
+  }
+
+  .house-details p {
+    width: 45%;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
 }
 
-.location {
-    font-size: 1.2rem;
-    color: #e76f51;
+/* For screens larger than 1024px */
+@media (min-width: 1024px) {
+  .house-details h1 {
+    font-size: 3.5rem;
+  }
+
+  .house-details p {
+    font-size: 1.4rem;
+  }
 }
 
-.description {
+/* For very small screens (mobile portrait) */
+@media (max-width: 480px) {
+  .house-details h1 {
+    font-size: 2rem;
+  }
+
+  .house-details p {
     font-size: 1rem;
-    color: #555;
-    margin-top: 20px;
-    border-top: 1px solid #ddd;
-    padding-top: 15px;
+  }
+
+  .house-details img {
+    max-width: 100%;
+  }
 }
