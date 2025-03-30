@@ -28,7 +28,7 @@ export const HousesApi = createApi({
   }),
   endpoints: (builder) => ({
     getAllHouse: builder.query<HousesResponse, void>({
-      query: () => '/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=10',
+      query: () => '/properties/list?locationExternalIDs=5002&purpose=for-sale&hitsPerPage=50',
     }),
   }),
 });
